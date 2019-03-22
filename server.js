@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const moment = require('moment');
 
 const app = express();
 
@@ -24,9 +24,10 @@ const monthNames = ["january", "february","march", "april", "may", "june", "july
 
 app.get('/', (req,res) => {res.send("It is working")});
 app.post('/signin', (req,res) => {
+  moment.format();
   const {user, password} = req.body;
   const cuser = 'admin'; //correct username
-  const cpass = new Date(); //correct password
+  const cpass = moment(); //correct password
   const cpassDate = cpass.getDate();
   const cpassYear = cpass.getFullYear();
   const cpassMonth = monthNames[cpass.getMonth()];
