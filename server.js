@@ -21,6 +21,8 @@ const knex = require('knex')({
 
 const monthNames = ["january", "february","march", "april", "may", "june", "july","august", "september","october", "november", "december"];
 
+
+app.get('/', (req,res) => {res.send("It is working")});
 app.post('/signin', (req,res) => {
   const {user, password} = req.body;
   const cuser = 'admin'; //correct username
