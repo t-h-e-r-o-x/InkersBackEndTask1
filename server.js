@@ -9,13 +9,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const knex = require('knex')({
-  client: 'mysql',
+  client: 'pg',
   connection: {
-    host:'localhost',
-    user: 'root',
-    port: '3306',
-    password: 'test',
-    database: 'graph'
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
   }
 })
 
